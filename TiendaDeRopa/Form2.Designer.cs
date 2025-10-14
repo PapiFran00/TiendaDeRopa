@@ -47,7 +47,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(661, 409);
+            label6.Location = new Point(345, 417);
             label6.Name = "label6";
             label6.Size = new Size(55, 15);
             label6.TabIndex = 28;
@@ -81,7 +81,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(661, 350);
+            label5.Location = new Point(345, 358);
             label5.Name = "label5";
             label5.Size = new Size(58, 15);
             label5.TabIndex = 24;
@@ -90,7 +90,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(661, 286);
+            label4.Location = new Point(345, 294);
             label4.Name = "label4";
             label4.Size = new Size(40, 15);
             label4.TabIndex = 23;
@@ -106,7 +106,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(661, 239);
+            label3.Location = new Point(345, 247);
             label3.Name = "label3";
             label3.Size = new Size(30, 15);
             label3.TabIndex = 21;
@@ -122,7 +122,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(661, 176);
+            label2.Location = new Point(345, 184);
             label2.Name = "label2";
             label2.Size = new Size(69, 15);
             label2.TabIndex = 19;
@@ -138,7 +138,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(661, 120);
+            label1.Location = new Point(345, 128);
             label1.Name = "label1";
             label1.Size = new Size(51, 15);
             label1.TabIndex = 17;
@@ -182,6 +182,7 @@
             Controls.Add(button1);
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load;
             ResumeLayout(false);
             PerformLayout();
         }

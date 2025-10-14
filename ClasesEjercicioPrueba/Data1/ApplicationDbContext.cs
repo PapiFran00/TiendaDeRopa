@@ -11,7 +11,7 @@ namespace ClasesEjercicioPrueba.Data1
 {
     public class ApplicationDbContext : DbContext
     {
-        
+        public DbSet<DetallePedido> DetallePedidos { get; set; }
 
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }

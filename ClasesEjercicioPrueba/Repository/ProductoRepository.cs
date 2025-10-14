@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ClasesEjercicioPrueba.Data1;
+using ClasesEjercicioPrueba.Models;
+using ClasesModelo.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClasesEjercicioPrueba.Data1;
-using ClasesEjercicioPrueba.Models;
 
 namespace ClasesEjercicioPrueba.Repository
 {
@@ -18,23 +19,31 @@ namespace ClasesEjercicioPrueba.Repository
             context.SaveChanges();
         }
 
-        public static List<Producto> ObtenerProductos()
+        public static Producto ObtenerProductoPorCodigo(int codigoBuscado)
         {
             using var context = new ApplicationDbContext();
-            return context.Productos.ToList();
+            return context.Productos.FirstOrDefault(p => p.IdProducto == codigoBuscado);
         }
 
-        public static void ActualizarProducto(Producto producto)
+        public static void ActualizarProducto(Producto codigoAactualizar)
         {
             using var context = new ApplicationDbContext();
-            context.Productos.Update(producto);
-            context.SaveChanges();
+            var productoExistente = context.Productos.Find(codigoAactualizar.IdProducto);
+            if (productoExistente != null)
+            {
+                context.Entry(productoExistente).CurrentValues.SetValues(codigoAactualizar);
+                context.SaveChanges();
+            }
         }
-        public static void EliminarProducto(Producto producto)
+        public static void EliminarProducto(int codigoAEliminar)
         {
             using var context = new ApplicationDbContext();
-            context.Productos.Remove(producto);
-            context.SaveChanges();
+            var producto = context.Productos.Find(codigoAEliminar);
+            if (producto != null)
+            {
+                context.Productos.Remove(producto);
+                context.SaveChanges();
+            }
         }
     }
 }

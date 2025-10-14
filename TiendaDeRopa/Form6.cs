@@ -1,0 +1,128 @@
+﻿using ClasesEjercicioPrueba.Models;
+using ClasesEjercicioPrueba.Repository;
+using ClasesModelo.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
+namespace TiendaDeRopa
+{
+    public partial class Form6 : Form
+    {
+        public Form6()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            Form1 nuevaVentana = new Form1();
+            nuevaVentana.Show();      // Muestra la nueva ventana
+            this.Hide();              // Oculta el formulario actual (opcional)
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            int dniBuscado = int.Parse(textBox1.Text);
+            Cliente cliente = ClienteRepository.ObtenerClientePorDni(dniBuscado);
+            if (cliente != null)
+            {
+                // Mostrar los datos del cliente en los TextBox correspondientes
+                int.TryParse(textBox2.Text, out int idCliente);
+                textBox2.Text = cliente.IdCliente.ToString();
+                textBox3.Text = cliente.Nombre;
+                textBox4.Text = cliente.Apellido;
+
+
+            }
+            else
+            {
+                MessageBox.Show("Cliente no encontrado");
+            }
+
+
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            int codigoBuscado = int.Parse(textBox5.Text);
+            Producto producto = ProductoRepository.ObtenerProductoPorCodigo(codigoBuscado);
+
+            if (producto != null)
+            {
+
+                textBox5.Text = producto.IdProducto.ToString();
+                textBox6.Text = producto.Nombre;
+                textBox7.Text = producto.Descripcion;
+                textBox8.Text = producto.Precio.ToString();
+
+            }
+            else
+            {
+                MessageBox.Show("Producto no encontrado");
+            }
+
+
+
+        }
+
+        private List<DetallePedido> _detalles = new List<DetallePedido>();
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int idpedido = 0;
+            int idProducto = int.Parse(textBox5.Text);
+            int cantidad = int.Parse(textBox9.Text);
+            string talla = comboBox1.SelectedItem.ToString();
+
+
+            DetallePedido nuevoDetalle = new DetallePedido
+            {
+                IdPedido = idpedido,
+                IdProducto = idProducto,
+                Cantidad = cantidad,
+                Talla = talla,
+                PrecioUnitario = ProductoRepository.ObtenerProductoPorCodigo(idProducto).Precio,
+                Subtotal = cantidad * ProductoRepository.ObtenerProductoPorCodigo(idProducto).Precio
+            };
+
+            _detalles.Add(nuevoDetalle);
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
+            textBox9.Clear();
+            comboBox1.SelectedIndex = -1;
+
+            MessageBox.Show("Detalle de pedido agregado con éxito");
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = _detalles;
+            dataGridView1.Columns["IdPedido"].Visible = false;
+            dataGridView1.Columns["IdDetallePedido"].Visible = false;
+
+
+        }
+
+        private void Form6_Load(object sender, EventArgs e)
+        {
+            comboBox1.Items.AddRange(new string[] { "XS", "S", "M", "L", "XL", "XXL" });
+        }
+    }
+}

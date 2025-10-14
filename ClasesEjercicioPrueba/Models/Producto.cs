@@ -1,11 +1,12 @@
 ﻿using ClasesModelo.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClasesEjercicioPrueba.Models
 {
     public class Producto
     {
 
-        public int IdProducto;
+        [Key] public int IdProducto { get; set; }
         
         public string Nombre { get; set; }
 
@@ -17,10 +18,15 @@ namespace ClasesEjercicioPrueba.Models
 
         public int CategoriaId { get; set; }
 
+        public int Stock { get; set; }
+
         public Categoria Categoria { get; set; }
 
-       
-        public Producto(string nombre, string descripcion, string talla, decimal precio, int categoriaId)
+        public Producto()
+        {
+        }
+
+        public Producto(string nombre, string descripcion, string talla, decimal precio, int categoriaId, int stock)
         {
         
             this.Nombre = nombre;
@@ -28,12 +34,8 @@ namespace ClasesEjercicioPrueba.Models
             this.Talla = talla;
             this.Precio = precio;
             this.CategoriaId = categoriaId;
+            this.Stock = stock;
         }
-
-
-
-
-
 
     }
 }
