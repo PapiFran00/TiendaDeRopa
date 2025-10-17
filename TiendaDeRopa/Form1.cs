@@ -63,7 +63,7 @@ namespace TiendaDeRopa
 
         private void button6_Click(object sender, EventArgs e)
         {
-            //lista de ropa con menos de 3 unidades en stock 
+
             Form7 ropaBajaStock = new Form7();
             ropaBajaStock.Show();      // Muestra la nueva ventana
             this.Hide();              // Oculta el formulario actual (opcional)
@@ -81,6 +81,13 @@ namespace TiendaDeRopa
         {
             Form9 reporteVentas = new Form9();
             reporteVentas.Show();
+            this.Hide();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Form10 ListaClientes = new Form10();
+            ListaClientes.Show();
             this.Hide();
         }
     }

@@ -53,6 +53,9 @@
             label10 = new Label();
             comboBox1 = new ComboBox();
             dateTimePicker1 = new DateTimePicker();
+            label11 = new Label();
+            button5 = new Button();
+            button6 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -270,11 +273,43 @@
             dateTimePicker1.Size = new Size(223, 23);
             dateTimePicker1.TabIndex = 25;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(269, 33);
+            label11.Name = "label11";
+            label11.Size = new Size(73, 15);
+            label11.TabIndex = 26;
+            label11.Text = "Nueva Venta";
+            // 
+            // button5
+            // 
+            button5.Location = new Point(592, 82);
+            button5.Name = "button5";
+            button5.Size = new Size(107, 23);
+            button5.TabIndex = 27;
+            button5.Text = "Lista Cliente";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click_1;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(592, 268);
+            button6.Name = "button6";
+            button6.Size = new Size(107, 23);
+            button6.TabIndex = 28;
+            button6.Text = "Lista Producto";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
             // Form6
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1322, 653);
+            Controls.Add(button6);
+            Controls.Add(button5);
+            Controls.Add(label11);
             Controls.Add(dateTimePicker1);
             Controls.Add(comboBox1);
             Controls.Add(label10);
@@ -334,5 +369,8 @@
         private Label label10;
         private ComboBox comboBox1;
         private DateTimePicker dateTimePicker1;
+        private Label label11;
+        private Button button5;
+        private Button button6;
     }
 }

@@ -44,6 +44,7 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
+            label7 = new Label();
             SuspendLayout();
             // 
             // textBox1
@@ -184,11 +185,21 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(314, 32);
+            label7.Name = "label7";
+            label7.Size = new Size(98, 15);
+            label7.TabIndex = 16;
+            label7.Text = "Modificar Cliente";
+            // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label7);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -229,5 +240,6 @@
         private Button button2;
         private Button button3;
         private Button button4;
+        private Label label7;
     }
 }

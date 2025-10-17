@@ -40,6 +40,7 @@
             label5 = new Label();
             button1 = new Button();
             button2 = new Button();
+            label6 = new Label();
             SuspendLayout();
             // 
             // textBox1
@@ -143,11 +144,21 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(372, 44);
+            label6.Name = "label6";
+            label6.Size = new Size(113, 15);
+            label6.TabIndex = 12;
+            label6.Text = "Crear Nuevo Cliente";
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1206, 624);
+            Controls.Add(label6);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label5);
@@ -180,5 +191,6 @@
         private Label label5;
         private Button button1;
         private Button button2;
+        private Label label6;
     }
 }

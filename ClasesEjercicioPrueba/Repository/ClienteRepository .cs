@@ -21,8 +21,10 @@ namespace ClasesEjercicioPrueba.Repository
 
         public static List<Cliente> ObtenerClientes()
         {
+
             using var context = new ApplicationDbContext();
             return context.Clientes.ToList();
+
         }
 
         public static Cliente ObtenerClientePorDni(int dniBuscado)

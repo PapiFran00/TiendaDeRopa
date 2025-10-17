@@ -46,6 +46,7 @@
             button3 = new Button();
             button4 = new Button();
             textBox6 = new TextBox();
+            label8 = new Label();
             SuspendLayout();
             // 
             // textBox1
@@ -202,11 +203,21 @@
             textBox6.Size = new Size(141, 23);
             textBox6.TabIndex = 42;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(398, 48);
+            label8.Name = "label8";
+            label8.Size = new Size(110, 15);
+            label8.TabIndex = 43;
+            label8.Text = "Modificar Producto";
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1041, 589);
+            Controls.Add(label8);
             Controls.Add(textBox6);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -252,5 +263,6 @@
         private Button button3;
         private Button button4;
         private TextBox textBox6;
+        private Label label8;
     }
 }

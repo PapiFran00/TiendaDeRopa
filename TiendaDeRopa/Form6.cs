@@ -84,7 +84,7 @@ namespace TiendaDeRopa
 
         }
 
-       
+
         private void button4_Click(object sender, EventArgs e)
         {
             // Guardar el pedido en la base de datos
@@ -122,9 +122,9 @@ namespace TiendaDeRopa
 
             DetallePedidoRepository.GuardarDetalles(nuevoPedido);
 
-          
+
             MessageBox.Show("Pedido guardado exitosamente");
-           
+
             textBox1.Clear();
             textBox2.Clear();
             textBox3.Clear();
@@ -146,7 +146,21 @@ namespace TiendaDeRopa
 
         private void button5_Click(object sender, EventArgs e)
         {
-             
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            Form11 form11 = new Form11();
+            form11.Show();
+            this.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Form12 form12 = new Form12();
+            form12.Show();
+            this.Close();
         }
     }
 }

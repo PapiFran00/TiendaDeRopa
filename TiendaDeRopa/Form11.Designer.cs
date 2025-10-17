@@ -1,6 +1,6 @@
 ﻿namespace TiendaDeRopa
 {
-    partial class Form8
+    partial class Form11
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(53, 45);
+            button1.Location = new Point(39, 33);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 0;
@@ -47,21 +47,21 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(110, 144);
+            dataGridView1.Location = new Point(134, 101);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(662, 209);
+            dataGridView1.Size = new Size(488, 179);
             dataGridView1.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(288, 53);
+            label1.Location = new Point(322, 61);
             label1.Name = "label1";
-            label1.Size = new Size(88, 15);
+            label1.Size = new Size(69, 15);
             label1.TabIndex = 2;
-            label1.Text = "Lista Productos";
+            label1.Text = "Lista cliente";
             // 
-            // Form8
+            // Form11
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -69,9 +69,9 @@
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(button1);
-            Name = "Form8";
-            Text = "Form8";
-            Load += Form8_Load;
+            Name = "Form11";
+            Text = "Form11";
+            Load += Form11_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -42,6 +42,7 @@
             textBox1 = new TextBox();
             button1 = new Button();
             comboBox2 = new ComboBox();
+            label7 = new Label();
             SuspendLayout();
             // 
             // label6
@@ -162,11 +163,21 @@
             comboBox2.Size = new Size(172, 23);
             comboBox2.TabIndex = 29;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(585, 51);
+            label7.Name = "label7";
+            label7.Size = new Size(125, 15);
+            label7.TabIndex = 30;
+            label7.Text = "Crear Nuevo Producto";
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1397, 600);
+            Controls.Add(label7);
             Controls.Add(comboBox2);
             Controls.Add(label6);
             Controls.Add(textBox5);
@@ -204,5 +215,6 @@
         private TextBox textBox1;
         private Button button1;
         private ComboBox comboBox2;
+        private Label label7;
     }
 }
