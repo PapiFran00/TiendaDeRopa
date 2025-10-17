@@ -36,12 +36,12 @@
             label4 = new Label();
             textBox4 = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
             label2 = new Label();
             textBox2 = new TextBox();
             label1 = new Label();
             textBox1 = new TextBox();
             button1 = new Button();
+            comboBox2 = new ComboBox();
             SuspendLayout();
             // 
             // label6
@@ -112,13 +112,6 @@
             label3.TabIndex = 21;
             label3.Text = "Talla";
             // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(434, 231);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(172, 23);
-            textBox3.TabIndex = 20;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -161,11 +154,20 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(434, 239);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(172, 23);
+            comboBox2.TabIndex = 29;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1397, 600);
+            Controls.Add(comboBox2);
             Controls.Add(label6);
             Controls.Add(textBox5);
             Controls.Add(button2);
@@ -174,7 +176,6 @@
             Controls.Add(label4);
             Controls.Add(textBox4);
             Controls.Add(label3);
-            Controls.Add(textBox3);
             Controls.Add(label2);
             Controls.Add(textBox2);
             Controls.Add(label1);
@@ -197,11 +198,11 @@
         private Label label4;
         private TextBox textBox4;
         private Label label3;
-        private TextBox textBox3;
         private Label label2;
         private TextBox textBox2;
         private Label label1;
         private TextBox textBox1;
         private Button button1;
+        private ComboBox comboBox2;
     }
 }

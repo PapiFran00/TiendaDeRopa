@@ -19,7 +19,7 @@ namespace ClasesEjercicioPrueba.Data1
         public DbSet<ProductoProveedor> ProductoProveedores { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
 
-        public DbSet<Pedido> Pedidos { get; set; }
+      
 
      
 

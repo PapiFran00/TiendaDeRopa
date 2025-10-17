@@ -8,19 +8,21 @@ using System.Threading.Tasks;
 
 namespace ClasesModelo.Models
 {
+
+
     public class Categoria
     {
 
-         [Key] public int IdCategoria { get; set; }
+        [Key] public int IdCategoria { get; set; }
 
         public string Nombre { get; set; }
 
-       public List<Producto> Productos { get; set; }
+        public List<Producto> Productos { get; set; }
 
         public Categoria(string nombre)
         {
             this.Nombre = nombre;
-           
+
         }
 
 

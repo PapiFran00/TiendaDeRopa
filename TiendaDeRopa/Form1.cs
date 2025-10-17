@@ -60,5 +60,28 @@ namespace TiendaDeRopa
 
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //lista de ropa con menos de 3 unidades en stock 
+            Form7 ropaBajaStock = new Form7();
+            ropaBajaStock.Show();      // Muestra la nueva ventana
+            this.Hide();              // Oculta el formulario actual (opcional)
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Form8 listaProductos = new Form8();
+            listaProductos.Show();
+            this.Hide();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Form9 reporteVentas = new Form9();
+            reporteVentas.Show();
+            this.Hide();
+        }
     }
 }

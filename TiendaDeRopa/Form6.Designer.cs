@@ -53,8 +53,6 @@
             label10 = new Label();
             comboBox1 = new ComboBox();
             dateTimePicker1 = new DateTimePicker();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -272,20 +270,11 @@
             dateTimePicker1.Size = new Size(223, 23);
             dateTimePicker1.TabIndex = 25;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(649, 136);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(614, 234);
-            dataGridView1.TabIndex = 26;
-            // 
             // Form6
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1322, 653);
-            Controls.Add(dataGridView1);
             Controls.Add(dateTimePicker1);
             Controls.Add(comboBox1);
             Controls.Add(label10);
@@ -314,7 +303,6 @@
             Name = "Form6";
             Text = "Form6";
             Load += Form6_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -346,6 +334,5 @@
         private Label label10;
         private ComboBox comboBox1;
         private DateTimePicker dateTimePicker1;
-        private DataGridView dataGridView1;
     }
 }

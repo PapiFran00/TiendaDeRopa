@@ -1,6 +1,7 @@
 ﻿using ClasesEjercicioPrueba.Data1;
 using ClasesEjercicioPrueba.Models;
 using ClasesModelo.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,13 @@ namespace ClasesEjercicioPrueba.Repository
 
             context.SaveChanges();
         }
+
+        public static List<Producto> ObtenerProductos()
+        {
+            using var context = new ApplicationDbContext();
+            return context.Productos.Include(p => p.Categoria).ToList();
+        }
+
 
         public static Producto ObtenerProductoPorCodigo(int codigoBuscado)
         {
@@ -43,6 +51,17 @@ namespace ClasesEjercicioPrueba.Repository
             {
                 context.Productos.Remove(producto);
                 context.SaveChanges();
+            }
+        }
+
+        public static List<Producto> ObtenerProductosConStockBajo()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                return context.Productos
+                              .Include(p => p.Categoria)
+                              .Where(p => p.Stock < 3)
+                              .ToList();
             }
         }
     }

@@ -4,6 +4,7 @@ using ClasesEjercicioPrueba.Data1;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClasesModelo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251014230854_actualizacionPedido")]
+    partial class actualizacionPedido
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,10 +121,7 @@ namespace ClasesModelo.Migrations
                     b.Property<int>("Cantidad")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("FechaPedido")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("IdCliente")
+                    b.Property<int>("IdPedido")
                         .HasColumnType("int");
 
                     b.Property<int>("IdProducto")
@@ -130,16 +130,38 @@ namespace ClasesModelo.Migrations
                     b.Property<decimal>("PrecioUnitario")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<decimal>("Subtotal")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Talla")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Total")
-                        .HasColumnType("decimal(18,2)");
-
                     b.HasKey("IdDetallePedido");
 
                     b.ToTable("DetallePedidos");
+                });
+
+            modelBuilder.Entity("ClasesModelo.Models.Pedido", b =>
+                {
+                    b.Property<int>("IdPedido")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPedido"));
+
+                    b.Property<DateTime>("FechaPedido")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdCliente")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("IdPedido");
+
+                    b.ToTable("Pedidos");
                 });
 
             modelBuilder.Entity("ClasesModelo.Models.ProductoProveedor", b =>

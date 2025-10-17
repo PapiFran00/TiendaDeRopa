@@ -39,7 +39,7 @@ namespace TiendaDeRopa
             Producto nuevoProducto = new Producto(
                 textBox1.Text,          // nombre
                 textBox2.Text,          // descripción
-                textBox3.Text,          // talla
+                comboBox2.Text,          // talla
                 decimal.Parse(textBox4.Text), // precio
                 categoriaSeleccionada,  // categoría
                 stock                   // stock
@@ -49,7 +49,7 @@ namespace TiendaDeRopa
 
             textBox1.Clear();
             textBox2.Clear();
-            textBox3.Clear();
+            comboBox2.SelectedIndex = -1;
             textBox4.Clear();
             textBox5.Clear();
 
@@ -62,6 +62,8 @@ namespace TiendaDeRopa
         {
 
             var categorias = ClasesEjercicioPrueba.Repository.CategoriaRepository.ObtenerCategorias();
+
+            comboBox2.Items.AddRange(new string[] { "XS", "S", "M", "L", "XL", "XXL" });
 
             // Carga los datos en el ComboBox
             comboBox1.DataSource = categorias;

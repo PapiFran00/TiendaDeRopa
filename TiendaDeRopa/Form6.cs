@@ -84,26 +84,51 @@ namespace TiendaDeRopa
 
         }
 
-        private List<DetallePedido> _detalles = new List<DetallePedido>();
+       
         private void button4_Click(object sender, EventArgs e)
         {
-            int idpedido = 0;
+            // Guardar el pedido en la base de datos
+            int idCliente = int.Parse(textBox2.Text);
             int idProducto = int.Parse(textBox5.Text);
             int cantidad = int.Parse(textBox9.Text);
+            DateTime fechaPedido = dateTimePicker1.Value;
             string talla = comboBox1.SelectedItem.ToString();
-
-
-            DetallePedido nuevoDetalle = new DetallePedido
+            decimal precioUnitario = decimal.Parse(textBox8.Text);
+            decimal total = precioUnitario * cantidad;
+            DetallePedido nuevoPedido = new DetallePedido
             {
-                IdPedido = idpedido,
+                FechaPedido = fechaPedido,
+                IdCliente = idCliente,
                 IdProducto = idProducto,
                 Cantidad = cantidad,
                 Talla = talla,
-                PrecioUnitario = ProductoRepository.ObtenerProductoPorCodigo(idProducto).Precio,
-                Subtotal = cantidad * ProductoRepository.ObtenerProductoPorCodigo(idProducto).Precio
+                PrecioUnitario = precioUnitario,
+                Total = total
             };
 
-            _detalles.Add(nuevoDetalle);
+            Producto producto = ProductoRepository.ObtenerProductoPorCodigo(idProducto);
+
+
+            if (producto.Stock < cantidad)
+            {
+                MessageBox.Show("No hay suficiente stock para completar la compra.");
+                return;
+            }
+            if (producto != null)
+            {
+                producto.Stock -= cantidad;
+                ProductoRepository.ActualizarProducto(producto);
+            }
+
+            DetallePedidoRepository.GuardarDetalles(nuevoPedido);
+
+          
+            MessageBox.Show("Pedido guardado exitosamente");
+           
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
             textBox5.Clear();
             textBox6.Clear();
             textBox7.Clear();
@@ -111,18 +136,17 @@ namespace TiendaDeRopa
             textBox9.Clear();
             comboBox1.SelectedIndex = -1;
 
-            MessageBox.Show("Detalle de pedido agregado con éxito");
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = _detalles;
-            dataGridView1.Columns["IdPedido"].Visible = false;
-            dataGridView1.Columns["IdDetallePedido"].Visible = false;
-
 
         }
 
         private void Form6_Load(object sender, EventArgs e)
         {
             comboBox1.Items.AddRange(new string[] { "XS", "S", "M", "L", "XL", "XXL" });
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+             
         }
     }
 }

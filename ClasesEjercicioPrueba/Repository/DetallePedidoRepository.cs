@@ -1,20 +1,24 @@
-﻿using System;
+﻿using ClasesEjercicioPrueba.Data1;
+using ClasesEjercicioPrueba.Models;
+using ClasesModelo.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClasesEjercicioPrueba.Data1;
-using ClasesEjercicioPrueba.Models;
-using ClasesModelo.Models;
 
 namespace ClasesEjercicioPrueba.Repository
 {
     public static class DetallePedidoRepository
     {
-        public static void GuardarDetallePedido(DetallePedido nuevoDetalle)
+        public static void GuardarDetalles(DetallePedido nuevoPedido)
         {
             using var context = new ApplicationDbContext();
-            context.DetallePedidos.Add(nuevoDetalle);
+            {
+                context.DetallePedidos.Add(nuevoPedido);
+                context.SaveChanges();
+            }
 
             context.SaveChanges();
         }
@@ -31,6 +35,18 @@ namespace ClasesEjercicioPrueba.Repository
             return context.DetallePedidos.FirstOrDefault(d => d.IdDetallePedido == idDetallePedido);
         }
 
-        
+
+        public static List<DetallePedido> ObtenerPedidosPorPeriodo(DateTime desde, DateTime hasta)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                return context.DetallePedidos
+                    .Where(p => p.FechaPedido >= desde && p.FechaPedido <= hasta)
+                    .Include(p => p.IdCliente)
+                    .ToList();
+            }
+        }
+
+
     }
 }
