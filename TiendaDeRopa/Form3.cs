@@ -47,7 +47,7 @@ namespace TiendaDeRopa
                 textBox1.Text = codigoAactualizar.IdProducto.ToString();
                 textBox2.Text = codigoAactualizar.Nombre;
                 textBox3.Text = codigoAactualizar.Descripcion;
-                textBox4.Text = codigoAactualizar.Talla.ToString();
+                comboBox2.SelectedValue = codigoAactualizar.Talla.ToString();
                 textBox5.Text = codigoAactualizar.Precio.ToString();
                 comboBox1.SelectedValue = codigoAactualizar.CategoriaId;
                 textBox6.Text = codigoAactualizar.Stock.ToString();
@@ -63,22 +63,47 @@ namespace TiendaDeRopa
         {
             int codigoAactualizar = int.Parse(textBox1.Text);
             //guardar cambios en el producto
+            if (string.IsNullOrEmpty(textBox2.Text) ||
+                string.IsNullOrEmpty(textBox3.Text) ||
+                comboBox2.SelectedIndex == -1 ||
+                string.IsNullOrEmpty(textBox5.Text) ||
+                string.IsNullOrEmpty(textBox6.Text) ||
+                comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
+
+            if (decimal.Parse(textBox5.Text) <= 0)
+            {
+                MessageBox.Show("El precio tiene que ser mayor que 0.");
+                return;
+            }
+
+            if (int.Parse(textBox6.Text) <= 0)
+            {
+                MessageBox.Show("El stock tiene que ser mayor que 0.");
+                return;
+            }
+                       
+                
+
             if (this.codigoAactualizar != null)
             {
 
                 this.codigoAactualizar.IdProducto = int.Parse(textBox1.Text);
                 this.codigoAactualizar.Nombre = textBox2.Text;
                 this.codigoAactualizar.Descripcion = textBox3.Text;
-                this.codigoAactualizar.Talla = textBox4.Text;
                 this.codigoAactualizar.Precio = decimal.Parse(textBox5.Text);
                 this.codigoAactualizar.CategoriaId = int.Parse(comboBox1.SelectedValue.ToString());
                 this.codigoAactualizar.Stock = int.Parse(textBox6.Text);
+                this.codigoAactualizar.Talla = comboBox2.SelectedItem.ToString();
 
                 ProductoRepository.ActualizarProducto(this.codigoAactualizar);
                 textBox1.Clear();
                 textBox2.Clear();
                 textBox3.Clear();
-                textBox4.Clear();
+                comboBox2.SelectedIndex = -1;
                 textBox5.Clear();
                 textBox6.Clear();
                 comboBox1.SelectedIndex = -1;
@@ -100,7 +125,7 @@ namespace TiendaDeRopa
                 textBox1.Clear();
                 textBox2.Clear();
                 textBox3.Clear();
-                textBox4.Clear();
+                comboBox2.SelectedIndex = -1;
                 textBox5.Clear();
                 textBox6.Clear();
                 comboBox1.SelectedIndex = -1;
@@ -114,13 +139,20 @@ namespace TiendaDeRopa
         private void Form3_Load(object sender, EventArgs e)
         {
             var categorias = ClasesEjercicioPrueba.Repository.CategoriaRepository.ObtenerCategorias();
+            var talla = ClasesEjercicioPrueba.Repository.CategoriaRepository.ObtenerCategorias();
 
-            // Carga los datos en el ComboBox
+
+            comboBox2.Items.AddRange(new string[] { "XS", "S", "M", "L", "XL", "XXL" });
+        
+
+       
             comboBox1.DataSource = categorias;
-            comboBox1.DisplayMember = "Nombre";     // Lo que el usuario ve
-            comboBox1.ValueMember = "IdCategoria";  // El valor real que se guarda
+            comboBox1.DisplayMember = "Nombre";     
+            comboBox1.ValueMember = "IdCategoria";  
 
             comboBox1.SelectedIndex = -1; // Que no seleccione ninguna al iniciar
+            comboBox2.SelectedIndex = -1; 
+
         }
     }
 }

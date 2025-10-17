@@ -87,6 +87,14 @@ namespace TiendaDeRopa
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBox1.Text) ||
+               string.IsNullOrEmpty(textBox5.Text) ||
+               comboBox1.SelectedIndex == -1 ||
+               string.IsNullOrEmpty(textBox9.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
             // Guardar el pedido en la base de datos
             int idCliente = int.Parse(textBox2.Text);
             int idProducto = int.Parse(textBox5.Text);
@@ -95,6 +103,12 @@ namespace TiendaDeRopa
             string talla = comboBox1.SelectedItem.ToString();
             decimal precioUnitario = decimal.Parse(textBox8.Text);
             decimal total = precioUnitario * cantidad;
+
+            if(cantidad <= 0)
+            {
+                MessageBox.Show("La cantidad debe ser mayor que cero.");
+                return;
+            }
             DetallePedido nuevoPedido = new DetallePedido
             {
                 FechaPedido = fechaPedido,

@@ -31,6 +31,7 @@ namespace ClasesEjercicioPrueba.Repository
         {
             using var context = new ApplicationDbContext();
             return context.Productos.FirstOrDefault(p => p.IdProducto == codigoBuscado);
+            
         }
 
         public static void ActualizarProducto(Producto codigoAactualizar)

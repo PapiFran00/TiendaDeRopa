@@ -30,11 +30,32 @@ namespace TiendaDeRopa
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrEmpty(textBox1.Text) ||
+                string.IsNullOrEmpty(textBox2.Text) ||
+                string.IsNullOrEmpty(textBox4.Text) ||
+                comboBox2.SelectedIndex == -1 ||
+                string.IsNullOrEmpty(textBox5.Text) ||              
+                comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
 
             // Crear el producto con los valores de los TextBox
             int categoriaSeleccionada = (int)comboBox1.SelectedValue;
             int stock = int.Parse(textBox5.Text);
+
+            if(decimal.Parse(textBox4.Text) <= 0)
+            {
+                MessageBox.Show("El precio tiene que ser mayor que 0.");
+                return;
+            }
+
+            if (stock <= 0)
+            {
+                MessageBox.Show("El stock tiene que ser mayor que 0.");
+                return;
+            }
 
             Producto nuevoProducto = new Producto(
                 textBox1.Text,          // nombre

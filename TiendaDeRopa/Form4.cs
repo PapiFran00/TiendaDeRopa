@@ -36,6 +36,17 @@ namespace TiendaDeRopa
         {
             //Agregar cliente nuevo a la base de datos
 
+            if (string.IsNullOrEmpty(textBox1.Text) ||
+               string.IsNullOrEmpty(textBox2.Text) ||
+               string.IsNullOrEmpty(textBox4.Text) ||        
+               string.IsNullOrEmpty(textBox5.Text) ||
+               string.IsNullOrEmpty(textBox3.Text))
+
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
+
             // Crear el cliente con los valores de los TextBox
             var nuevoCliente = new Cliente(
                 textBox1.Text,  // nombre
@@ -56,6 +67,11 @@ namespace TiendaDeRopa
 
 
             MessageBox.Show("Cliente agregado correctamente.");
+        }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

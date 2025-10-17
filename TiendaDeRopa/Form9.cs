@@ -49,7 +49,17 @@ namespace TiendaDeRopa
             }).ToList();
 
             dataGridView1.DataSource = vista;
+            if (dataGridView1.Columns["ID"] != null)
+            {
+                dataGridView1.Columns["ID"].HeaderText = "ID Pedido";
+            }
+
+        }
+
+        private void Form9_Load(object sender, EventArgs e)
+        {
+
         }
     }
-    
+
 }

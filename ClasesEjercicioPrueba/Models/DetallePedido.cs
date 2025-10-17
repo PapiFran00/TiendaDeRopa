@@ -21,7 +21,7 @@ namespace ClasesModelo.Models
         public string Talla { get; set; }
         public decimal PrecioUnitario { get; set; }
         public decimal Total { get; set; }
-
+     
         public DetallePedido()
         {
         }

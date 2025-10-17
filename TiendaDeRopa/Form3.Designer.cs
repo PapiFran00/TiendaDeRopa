@@ -31,7 +31,6 @@
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
-            textBox4 = new TextBox();
             textBox5 = new TextBox();
             comboBox1 = new ComboBox();
             label6 = new Label();
@@ -47,6 +46,7 @@
             button4 = new Button();
             textBox6 = new TextBox();
             label8 = new Label();
+            comboBox2 = new ComboBox();
             SuspendLayout();
             // 
             // textBox1
@@ -69,13 +69,6 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(141, 23);
             textBox3.TabIndex = 2;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(317, 274);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(141, 23);
-            textBox4.TabIndex = 3;
             // 
             // textBox5
             // 
@@ -212,11 +205,20 @@
             label8.TabIndex = 43;
             label8.Text = "Modificar Producto";
             // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(317, 274);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(141, 23);
+            comboBox2.TabIndex = 44;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1041, 589);
+            Controls.Add(comboBox2);
             Controls.Add(label8);
             Controls.Add(textBox6);
             Controls.Add(button4);
@@ -232,7 +234,6 @@
             Controls.Add(label1);
             Controls.Add(comboBox1);
             Controls.Add(textBox5);
-            Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -248,7 +249,6 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
-        private TextBox textBox4;
         private TextBox textBox5;
         private ComboBox comboBox1;
         private Label label6;
@@ -264,5 +264,6 @@
         private Button button4;
         private TextBox textBox6;
         private Label label8;
+        private ComboBox comboBox2;
     }
 }

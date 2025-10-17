@@ -42,7 +42,7 @@ namespace ClasesEjercicioPrueba.Repository
             {
                 return context.DetallePedidos
                     .Where(p => p.FechaPedido >= desde && p.FechaPedido <= hasta)
-                    .Include(p => p.IdCliente)
+               
                     .ToList();
             }
         }

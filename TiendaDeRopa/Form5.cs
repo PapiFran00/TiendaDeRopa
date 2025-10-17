@@ -57,6 +57,18 @@ namespace TiendaDeRopa
         private void button3_Click(object sender, EventArgs e)
         {
             //Guardar cambios en el cliente
+            if (string.IsNullOrEmpty(textBox1.Text) ||
+               string.IsNullOrEmpty(textBox2.Text) ||
+               string.IsNullOrEmpty(textBox4.Text) ||
+               string.IsNullOrEmpty(textBox5.Text) ||
+               string.IsNullOrEmpty(textBox6.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
+          
+
+
             var clienteActualizado = new Cliente(
                 textBox3.Text,  // nombre
                 textBox4.Text,  // Apellido
