@@ -19,16 +19,16 @@ namespace TiendaDeRopa
         {
 
             Form3 form3 = new Form3();
-            form3.Show();      
-            this.Hide();             
+            form3.Show();      // Muestra la nueva ventana
+            this.Hide();              // Oculta el formulario actual (opcional)
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Form3 nuevaVenta = new Form3();
-            nuevaVenta.Show();      
-            this.Hide();              
+            nuevaVenta.Show();      // Muestra la nueva ventana
+            this.Hide();              // Oculta el formulario actual (opcional)
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -39,15 +39,15 @@ namespace TiendaDeRopa
         private void button3_Click(object sender, EventArgs e)
         {
             Form4 nuevoCliente = new Form4();
-            nuevoCliente.Show();      
-            this.Hide();              
+            nuevoCliente.Show();      // Muestra la nueva ventana
+            this.Hide();              // Oculta el formulario actual (opcional)
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Form5 verClientes = new Form5();
-            verClientes.Show();      
-            this.Hide();              
+            verClientes.Show();      // Muestra la nueva ventana
+            this.Hide();              // Oculta el formulario actual (opcional)
 
         }
 
@@ -55,8 +55,8 @@ namespace TiendaDeRopa
         {
 
             Form6 nuevaVenta = new Form6();
-            nuevaVenta.Show();     
-            this.Hide();              
+            nuevaVenta.Show();      // Muestra la nueva ventana
+            this.Hide();              // Oculta el formulario actual (opcional)
 
 
         }
@@ -65,8 +65,8 @@ namespace TiendaDeRopa
         {
 
             Form7 ropaBajaStock = new Form7();
-            ropaBajaStock.Show();     
-            this.Hide();              
+            ropaBajaStock.Show();      // Muestra la nueva ventana
+            this.Hide();              // Oculta el formulario actual (opcional)
 
         }
 

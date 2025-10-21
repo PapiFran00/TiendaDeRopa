@@ -34,6 +34,8 @@
             dataGridView1 = new DataGridView();
             button2 = new Button();
             label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -83,17 +85,37 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(326, 34);
+            label1.Location = new Point(377, 32);
             label1.Name = "label1";
             label1.Size = new Size(95, 15);
             label1.TabIndex = 5;
             label1.Text = "Ventas realizadas";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(207, 47);
+            label2.Name = "label2";
+            label2.Size = new Size(39, 15);
+            label2.TabIndex = 6;
+            label2.Text = "Desde";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(576, 47);
+            label3.Name = "label3";
+            label3.Size = new Size(37, 15);
+            label3.TabIndex = 7;
+            label3.Text = "Hasta";
             // 
             // Form9
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(dataGridView1);
@@ -116,5 +138,7 @@
         private DataGridView dataGridView1;
         private Button button2;
         private Label label1;
+        private Label label2;
+        private Label label3;
     }
 }
