@@ -12,7 +12,7 @@ namespace ClasesEjercicioPrueba.Repository
     public static class CategoriaRepository
     {
 
-        //buscar todas las categorias
+        
         public static List<Categoria> ObtenerCategorias()
         {
             using var context = new ApplicationDbContext();

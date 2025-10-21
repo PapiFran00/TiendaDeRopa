@@ -24,8 +24,8 @@ namespace TiendaDeRopa
         {
 
             Form1 nuevaVentana = new Form1();
-            nuevaVentana.Show();      // Muestra la nueva ventana
-            this.Hide();              // Oculta el formulario actual (opcional)
+            nuevaVentana.Show();      
+            this.Hide();             
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace TiendaDeRopa
                 return;
             }
 
-            // Crear el producto con los valores de los TextBox
+
             int categoriaSeleccionada = (int)comboBox1.SelectedValue;
             int stock = int.Parse(textBox5.Text);
 
