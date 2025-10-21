@@ -43,11 +43,11 @@ namespace TiendaDeRopa
 
             if (codigoAactualizar != null)
             {
-                
+
                 textBox1.Text = codigoAactualizar.IdProducto.ToString();
                 textBox2.Text = codigoAactualizar.Nombre;
                 textBox3.Text = codigoAactualizar.Descripcion;
-                comboBox2.SelectedValue = codigoAactualizar.Talla.ToString();
+                comboBox2.SelectedItem = codigoAactualizar.Talla.ToString();
                 textBox5.Text = codigoAactualizar.Precio.ToString();
                 comboBox1.SelectedValue = codigoAactualizar.CategoriaId;
                 textBox6.Text = codigoAactualizar.Stock.ToString();
@@ -85,8 +85,8 @@ namespace TiendaDeRopa
                 MessageBox.Show("El stock tiene que ser mayor que 0.");
                 return;
             }
-                       
-                
+
+
 
             if (this.codigoAactualizar != null)
             {
@@ -97,7 +97,7 @@ namespace TiendaDeRopa
                 this.codigoAactualizar.Precio = decimal.Parse(textBox5.Text);
                 this.codigoAactualizar.CategoriaId = int.Parse(comboBox1.SelectedValue.ToString());
                 this.codigoAactualizar.Stock = int.Parse(textBox6.Text);
-                this.codigoAactualizar.Talla = comboBox2.SelectedItem.ToString();
+                this.codigoAactualizar.Talla = comboBox2.Text;
 
                 ProductoRepository.ActualizarProducto(this.codigoAactualizar);
                 textBox1.Clear();
@@ -143,15 +143,20 @@ namespace TiendaDeRopa
 
 
             comboBox2.Items.AddRange(new string[] { "XS", "S", "M", "L", "XL", "XXL" });
-        
 
-       
+
+
             comboBox1.DataSource = categorias;
-            comboBox1.DisplayMember = "Nombre";     
-            comboBox1.ValueMember = "IdCategoria";  
+            comboBox1.DisplayMember = "Nombre";
+            comboBox1.ValueMember = "IdCategoria";
 
             comboBox1.SelectedIndex = -1; // Que no seleccione ninguna al iniciar
-            comboBox2.SelectedIndex = -1; 
+            comboBox2.SelectedIndex = -1;
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

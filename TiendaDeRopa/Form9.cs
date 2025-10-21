@@ -44,7 +44,7 @@ namespace TiendaDeRopa
             {
                 ID = p.IdDetallePedido,
                 Fecha = p.FechaPedido.ToShortDateString(),
-                Cliente = p.IdCliente,
+                Cliente = ClienteRepository.GetClientByID(p.IdCliente).CompleteName(),
                 Total = p.Total
             }).ToList();
 
@@ -57,6 +57,11 @@ namespace TiendaDeRopa
         }
 
         private void Form9_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

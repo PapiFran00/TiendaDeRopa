@@ -212,6 +212,7 @@
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(141, 23);
             comboBox2.TabIndex = 44;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // Form3
             // 

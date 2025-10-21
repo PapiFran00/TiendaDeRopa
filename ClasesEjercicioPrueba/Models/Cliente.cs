@@ -26,5 +26,10 @@ namespace ClasesModelo.Models
             this.Dni = dni;
             this.Telefono = telefono;
         }
+
+        public string CompleteName()
+        {
+            return $"{Nombre} {Apellido}";
+        }
     }
 }

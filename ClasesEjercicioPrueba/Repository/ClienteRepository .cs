@@ -33,6 +33,12 @@ namespace ClasesEjercicioPrueba.Repository
             return context.Clientes.FirstOrDefault(c => c.Dni == dniBuscado);
         }
 
+        public static Cliente GetClientByID(int ID)
+        {
+            using var context = new ApplicationDbContext();
+            return context.Clientes.FirstOrDefault(c => c.IdCliente == ID);
+        }
+
         public static void ActualizarCliente(Cliente cliente)
         {
             using var context = new ApplicationDbContext();
