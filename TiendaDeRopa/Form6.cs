@@ -95,6 +95,26 @@ namespace TiendaDeRopa
                 MessageBox.Show("Por favor, complete todos los campos.");
                 return;
             }
+
+            if (!textBox1.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("El DNI del cliente solo debe contener números.");
+                return;
+            }
+            
+
+            if (!textBox5.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("El ID del producto solo debe contener números.");
+                return;
+            }
+
+            if (!textBox9.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("La cantidad solo debe contener números.");
+                return;
+            }
+
             // Guardar el pedido en la base de datos
             int idCliente = int.Parse(textBox2.Text);
             int idProducto = int.Parse(textBox5.Text);

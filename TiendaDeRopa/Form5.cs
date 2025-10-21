@@ -66,29 +66,50 @@ namespace TiendaDeRopa
                 MessageBox.Show("Por favor, complete todos los campos.");
                 return;
             }
-          
+
+            // Validar teléfono
+            if (!textBox6.Text.All(char.IsLetter))
+            {
+                MessageBox.Show("El teléfono solo debe contener números.");
+                return;
+            }
+            // Validar nombre y apellido 
+            if (!textBox3.Text.All(char.IsLetter))
+            {
+                MessageBox.Show("El nombre solo debe contener letras.");
+                return;
+            }
+            if (!textBox4.Text.All(char.IsLetter))
+            {
+                MessageBox.Show("El apellido solo debe contener letras.");
+                return;
+            }
 
 
-            var clienteActualizado = new Cliente(
+
+
+            {
+                var clienteActualizado = new Cliente(
                 textBox3.Text,  // nombre
                 textBox4.Text,  // Apellido
                 textBox5.Text,  // email
                 int.Parse(textBox1.Text),  // Dni
                 textBox6.Text   // telefono
             );
-            clienteActualizado.IdCliente = int.Parse(textBox2.Text);
-            ClienteRepository.ActualizarCliente(clienteActualizado);
+                clienteActualizado.IdCliente = int.Parse(textBox2.Text);
+                ClienteRepository.ActualizarCliente(clienteActualizado);
 
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
-            textBox6.Clear();
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                textBox4.Clear();
+                textBox5.Clear();
+                textBox6.Clear();
 
 
-            MessageBox.Show("Cliente actualizado correctamente.");
+                MessageBox.Show("Cliente actualizado correctamente.");
 
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

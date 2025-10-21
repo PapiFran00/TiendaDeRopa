@@ -74,14 +74,26 @@ namespace TiendaDeRopa
                 return;
             }
 
-            if (decimal.Parse(textBox5.Text) <= 0)
+            if (!decimal.TryParse(textBox5.Text, out decimal precio))
+            {
+                MessageBox.Show("El precio debe ser un número válido.");
+                return;
+            }
+
+            if (precio <= 0)
             {
                 MessageBox.Show("El precio tiene que ser mayor que 0.");
                 return;
             }
 
-            if (int.Parse(textBox6.Text) <= 0)
+            if (!int.TryParse(textBox6.Text, out int stock))
             {
+                MessageBox.Show("El stock debe ser un número válido.");
+                return;
+            }
+
+            if (stock <= 0)
+            {   
                 MessageBox.Show("El stock tiene que ser mayor que 0.");
                 return;
             }

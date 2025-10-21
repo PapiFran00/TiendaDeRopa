@@ -34,7 +34,7 @@ namespace TiendaDeRopa
                 string.IsNullOrEmpty(textBox2.Text) ||
                 string.IsNullOrEmpty(textBox4.Text) ||
                 comboBox2.SelectedIndex == -1 ||
-                string.IsNullOrEmpty(textBox5.Text) ||              
+                string.IsNullOrEmpty(textBox5.Text) ||
                 comboBox1.SelectedIndex == -1)
             {
                 MessageBox.Show("Por favor, complete todos los campos.");
@@ -43,11 +43,24 @@ namespace TiendaDeRopa
 
             // Crear el producto con los valores de los TextBox
             int categoriaSeleccionada = (int)comboBox1.SelectedValue;
-            int stock = int.Parse(textBox5.Text);
+            
 
-            if(decimal.Parse(textBox4.Text) <= 0)
+            //  validar que el precio y el stock sean mayores que no se le pueda poner letras
+            if (!decimal.TryParse(textBox4.Text, out decimal precio))
+            {
+                MessageBox.Show("El precio debe ser un número válido.");
+                return;
+            }
+
+            if (decimal.Parse(textBox4.Text) <= 0)
             {
                 MessageBox.Show("El precio tiene que ser mayor que 0.");
+                return;
+            }
+
+            if (!int.TryParse(textBox5.Text, out int stock))
+            {
+                MessageBox.Show("El stock debe ser un número válido.");
                 return;
             }
 
@@ -92,7 +105,7 @@ namespace TiendaDeRopa
             comboBox1.ValueMember = "IdCategoria";  // El valor real que se guarda
 
             comboBox1.SelectedIndex = -1; // Que no seleccione ninguna al iniciar
-            
+            comboBox2.SelectedIndex = -1;
         }
     }
 }

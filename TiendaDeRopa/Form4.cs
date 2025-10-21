@@ -47,6 +47,46 @@ namespace TiendaDeRopa
                 return;
             }
 
+            //Validacion dni
+            if (!int.TryParse(textBox4.Text, out int dni))
+            {
+                MessageBox.Show("El DNI debe ser un número válido.");
+                return;
+            }
+   
+            if (textBox4.Text.Length < 7 || textBox4.Text.Length > 8)
+            {
+                MessageBox.Show("El DNI debe tener entre 7 y 8 dígitos.");
+                return;
+            }
+
+            if (ClasesEjercicioPrueba.Repository.ClienteRepository.ObtenerClientePorDni(dni) != null)
+            {
+                MessageBox.Show("Ya existe un cliente con ese DNI.");
+                return;
+            }
+
+            // Validar nombre y apellido (solo letras)
+
+            if (!textBox1.Text.All(char.IsLetter))
+            {
+                MessageBox.Show("El nombre solo debe contener letras.");
+                return;
+            }
+
+            if (!textBox2.Text.All(char.IsLetter))
+            {
+                MessageBox.Show("El apellido solo debe contener letras.");
+                return;
+            }
+
+            if (!textBox5.Text.All(char.IsLetter))
+            {
+                MessageBox.Show("El teléfono solo debe contener numeros.");
+                return;
+            }
+
+
             // Crear el cliente con los valores de los TextBox
             var nuevoCliente = new Cliente(
                 textBox1.Text,  // nombre
