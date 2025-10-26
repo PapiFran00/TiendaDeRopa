@@ -80,7 +80,7 @@ namespace TiendaDeRopa
                 return;
             }
 
-            if (!textBox5.Text.All(char.IsLetter))
+            if (textBox5.Text.All(char.IsLetter))
             {
                 MessageBox.Show("El teléfono solo debe contener numeros.");
                 return;
